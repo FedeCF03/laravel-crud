@@ -33,3 +33,4 @@ Route::get('/user/avatar/{filename}', [App\Http\Controllers\UserController::clas
 Route::get('/crear-imagen', [App\Http\Controllers\ImageController::class, 'create'])->name('image.create');
 Route::post('/image/save', [App\Http\Controllers\ImageController::class, 'save'])->name('image.save');
 Route::get('/image/file/{filename}', [App\Http\Controllers\ImageController::class, 'getImage'])->name('getIamge');
+Route::get('/image/{id}', [App\Http\Controllers\ImageController::class, 'detail'])->name('detail');

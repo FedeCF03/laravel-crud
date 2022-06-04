@@ -4,15 +4,12 @@
     @include('includes.message')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                @foreach ($images as $image)
+            <div class="col-md-10">
                     <div class="card">
                         <div class="card-header">
                             <img src="{{ url('/user/avatar/' . $image->user->image) }}" class="img-thumbnail" width="80px">
-<a href="{{ url('/image/' . $image->id) }}"><span class="nickname">
+
                             {{ $image->user->name }}
-                            </span>
-                        </a>
                         </div>
 
                         <div class="card-body">
@@ -25,7 +22,7 @@
                         <div class="like"></div>
                         <div class="desc">{{ $image->description }}</div>
                     </div>
-                @endforeach
+
 
             </div>
 
