@@ -20,27 +20,24 @@
                             <img src="{{ route('getIamge', ['filename' => $image->image_path]) }}" />
 
                         </div>
-                    <div>  <h2>comments{{ $image->comments->count() }}</h2>
-                        <hr>
-                        <form method="POST" action="">
-                            @csrf
-                           <input type="hidden" name="image_id" value="{{ $image->id }}" >
-                            <p>
-                               <textarea class="form-control" name="content" required >
 
-                               </textarea>
-                           </p>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-sm btn-primary" value="Add comment">
-                                Submit</button>
-                                </div>
-                        </form>
                     </div>
                         </a>
-                        <div class="like"></div>
+                        <div class="like">
+                            {{ count($image->likes) }}
+                            <?php $user_like = false; ?>
+                            @foreach ($image->likes as $like)
+                                @if ($like->user->id == Auth::user()->id)
+                                    <?php $user_like = true; ?>
+                                @endif;
+                                @endforeach
+
+                            <img src="{{ asset('imgs/black-like.png') }}" class="btn-like">
+                            <img src="{{ asset('imgs/blue-like.png') }}" class="btn-like">
+
+                        </div>
                         <div class="desc">{{ $image->description }}</div>
                     </div>
-                @endforeach
 
             </div>
 

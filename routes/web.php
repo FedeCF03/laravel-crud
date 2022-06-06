@@ -34,3 +34,6 @@ Route::get('/crear-imagen', [App\Http\Controllers\ImageController::class, 'creat
 Route::post('/image/save', [App\Http\Controllers\ImageController::class, 'save'])->name('image.save');
 Route::get('/image/file/{filename}', [App\Http\Controllers\ImageController::class, 'getImage'])->name('getIamge');
 Route::get('/image/{id}', [App\Http\Controllers\ImageController::class, 'detail'])->name('detail');
+Route::post('/comment/save', [App\Http\Controllers\CommentController::class, 'save'])->name('comment.save');
+Route::get('/comment/delete{id}', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
+Route::get('/like/{image_id}', [App\Http\Controllers\LikeController::class, 'like'])->name('like.save');
